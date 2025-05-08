@@ -67,7 +67,11 @@ export const Checkout = () => {
             const newCheckoutSchedule = await getCheckoutSchedule();
             setCheckoutSchedule(newCheckoutSchedule);
           } catch (error) {
-            alert(error.message);
+              if (error instanceof Error) {
+                  alert(error.message);
+              } else {
+                  alert("An unknown error occurred");
+              }
           }
         }}
       >

@@ -38,7 +38,11 @@ export const PickRoom = () => {
 
       history.push(`book-room/${roomNumber}`);
     } catch (error) {
-      alert(error.message);
+      if (error instanceof Error) {
+        alert(error.message);
+      } else {
+        alert("An unknown error occurred");
+      }
     }
   };
 

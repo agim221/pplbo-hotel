@@ -37,7 +37,11 @@ export const Register = () => {
       // /accounts/:id
       history.push(`/user/${accountData.accountId}/pick-room`);
     } catch (error) {
-      alert(error.message);
+      if (error instanceof Error) {
+        alert(error.message);
+      } else {
+        alert("An unknown error occurred");
+      }
     }
   };
 

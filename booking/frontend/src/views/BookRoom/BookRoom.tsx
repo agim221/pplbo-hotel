@@ -85,7 +85,11 @@ export const BookRoom = () => {
       setMyBookings(roomForAccountData.bookings);
       setMyFailedBookings(roomForAccountData.myFailedBookings);
     } catch (error) {
-      alert(error.message);
+      if (error instanceof Error) {
+        alert(error.message);
+      } else {
+        alert("An unknown error occurred");
+      }
 
       getRoomForAccount(roomNumber, accountId).then((roomForAccountData) =>
         setMyFailedBookings(roomForAccountData.myFailedBookings)

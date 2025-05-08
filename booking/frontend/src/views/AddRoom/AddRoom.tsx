@@ -36,7 +36,11 @@ export const AddRoom = () => {
 
       alert(`Successfully added room with number ${formData.roomNumber}`);
     } catch (error) {
-      alert(error.message);
+      if (error instanceof Error) {
+        alert(error.message);
+      } else {
+        alert("An unknown error occurred");
+      }
     }
   };
 

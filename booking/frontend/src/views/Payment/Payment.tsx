@@ -39,7 +39,11 @@ export const Payment = () => {
       });
       alert(`Sucessfully paid! Thank you for your stay.`);
     } catch (error) {
-      alert(error.message);
+      if (error instanceof Error) {
+        alert(error.message);
+      } else {
+        alert("An unknown error occurred");
+      }
     }
   };
 

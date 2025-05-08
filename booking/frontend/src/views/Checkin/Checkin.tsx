@@ -47,7 +47,11 @@ export const Checkin = () => {
       alert(`Checked into room ${roomNumber} succesfully!`);
       history.push(`/user/${accountId}/payment`);
     } catch (error) {
-      alert(error.message);
+      if (error instanceof Error) {
+        alert(error.message);
+      } else {
+        alert("An unknown error occurred");
+      }
     }
   };
 
